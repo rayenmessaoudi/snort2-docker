@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-ENV VERSION 2.9.15.1
+ENV VERSION 2.9.16.1
 
 RUN mkdir -p /root/pcaps/
 COPY labs /root/
@@ -34,7 +34,7 @@ RUN  apt-get update && \
   tcpreplay && \
   apt-get clean && \
   curl -L -O https://snort.org/downloads/snort/snort-$VERSION.tar.gz && \
-  tar xf ./snort-$VERSION.tar.gz && \
+  tar zxvf ./snort-$VERSION.tar.gz && \
   cd ./snort-$VERSION && \
   ./configure --enable-sourcefire --enable-open-appid && \
   make -j$(nproc) && \
